@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Li, Ul } from './ContactList.styled';
+import { Li, Ul, Button } from './ContactList.styled';
 
 export const ContactList = ({ contacts, onDeleteContactList }) => {
   return (<Ul>
@@ -9,12 +9,12 @@ export const ContactList = ({ contacts, onDeleteContactList }) => {
         <p className="ContactList__text">
           {name} : <span> {number} </span>
         </p>
-        <button
+        <Button
           type="button"
           onClick={() => onDeleteContactList(id)}
         >
-          Удалить
-        </button>
+          Delete
+        </Button>
       </Li>
     ))}
   </Ul>)

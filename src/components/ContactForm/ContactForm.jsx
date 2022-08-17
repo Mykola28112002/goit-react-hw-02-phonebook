@@ -1,6 +1,6 @@
 
-import { Formik, ErrorMessage } from 'formik';
-import { Label, Button, Input, Forms } from './ContactForm.styled';
+import { Formik,} from 'formik';
+import { Label, Button, Input, Forms, Error } from './ContactForm.styled';
 import * as yup from 'yup';
 import React, { Component } from "react";
 
@@ -19,12 +19,12 @@ export class ContactForm extends Component {
   
   handelSabmit = (values, {resetForm}) => { 
     this.props.onSubmit(values)
-    this.setState({ values: values });
-    console.log(this.state)
+    this.setState({
+      name: values.name,
+      number: values.number
+    });
     resetForm();
   };
-
- 
 
   render() {
     return <Formik
@@ -33,25 +33,25 @@ export class ContactForm extends Component {
         onSubmit={this.handelSabmit}
         >
         <Forms action="">
-            <ErrorMessage component='div' name='name'/>
+            <Error component='div' name='name'/>
             <Label htmlFor="text">Name
                 <Input
                     type="text"
                     name="name"
-                    // value={this.state.name}
                     pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
                     required
                 />
             </Label>
-            <ErrorMessage component='div' name='number'/>
+            <Error component='div' name='number'/>
             <Label htmlFor="number">Number
                 <Input
                   type="tel"
                   name="number"
                   title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
-                  // value={this.state.number}
                   pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
-                  required />
+                  required
+                />
+                  
             </Label>  
             <Button type='submit' >Add contact</Button>
         </Forms>

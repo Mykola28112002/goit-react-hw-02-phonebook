@@ -1,6 +1,13 @@
 
 import styled from 'styled-components';
-import {Form,Field } from 'formik';
+import {Form,Field,ErrorMessage } from 'formik';
+
+
+export const Error = styled(ErrorMessage)`  
+    /* margin-bottom: ${p => p.theme.space[1]}px; */
+    color: ${p => p.theme.colors.error};
+    font-size: ${p => p.theme.fontSizes.s};
+`;
 
 export const Forms = styled(Form)`  
     display: flex;
@@ -27,5 +34,7 @@ export const Button = styled.button`
     color: ${p => p.theme.colors.white};
     background: ${p => p.theme.colors.accent};
     border-radius: 8px;
+    box-shadow: 1px 4px 3px rgb(0 0 0 / 20%), 0 1px 1px rgb(0 0 0 / 14%), 1px 4px 3px rgb(0 0 0 / 12%);
+    cursor: pointer;
     
 `;

@@ -3,7 +3,6 @@ import styled from 'styled-components';
 export const Input = styled.input`  
     width: ${p => p.theme.space[7]}px;
     padding: ${p => p.theme.space[3]}px;
-    margin-top: ${p => p.theme.space[3]}px;
     margin-left: ${p => p.theme.space[3]}px;
     display: block;
 `;
