@@ -1,8 +1,10 @@
 
 import { Formik,} from 'formik';
 import { Label, Button, Input, Forms, Error } from './ContactForm.styled';
-import * as yup from 'yup';
 import React, { Component } from "react";
+import * as yup from 'yup';
+import PropTypes from 'prop-types';
+
 
 const scema = yup.object().shape({
     name: yup.string().required(),
@@ -14,7 +16,6 @@ export class ContactForm extends Component {
   state = {
     name: '',
     number: '',
-    contacts: []
   };
   
   handelSabmit = (values, {resetForm}) => { 
@@ -58,3 +59,6 @@ export class ContactForm extends Component {
     </Formik> ;
   }
 }
+ContactForm.propTypes = {
+  onSubmit: PropTypes.func.isRequired,
+};
